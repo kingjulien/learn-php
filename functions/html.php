@@ -21,8 +21,7 @@ function slug(string $title) {
 function zoradQueryString($podlaCoho) {
 
 	// nastavi ?ord na to podla coho zoradujem
-	queryBuild('ord', $podlaCoho);
-
+	
 	// nastavi ?sort na bud 'hore' alebo 'dole'
 	if (isset($_GET['ord']) && $podlaCoho === $_GET['ord']) {
 		// ked zoraduje (klikol) na to iste, tak meni hore/dole
@@ -34,8 +33,30 @@ function zoradQueryString($podlaCoho) {
 		$sort = 'dole';
 	}
 
-	return queryBuild('sort', $sort);
+	return queryBuild(
+		[
+		  'sort' => $sort,
+		  'ord' => $podlaCoho
+		]
+	);
 }
+
+/**
+* replaces key/value in query string
+* @param array $params - key - value
+* @return string $query - query string
+*/
+function queryBuild($params) {
+
+	$poleHodnot = $_GET;
+
+	foreach ($params as $key => $value) {
+		$poleHodnot[$key] = $value;
+	}
+	
+    return '?' . http_build_query($poleHodnot);
+}
+
 
 
 function priceFormat($price) {
@@ -66,16 +87,3 @@ function buildBookUrl(string $title, int $id) {
 }
 
 
-/**
-* replaces key/value in query string
-* @param string $key - key
-* @param string $value - value
-* @author ja
-* @return string $query - query string
-*/
-function queryBuild($key, $value) {
-	$poleHodnot = & $_GET;
-	$poleHodnot[$key] = $value;
-
-    return '?' . http_build_query($poleHodnot);
-}

@@ -2,9 +2,13 @@
 
 use Classes\Kniha;
 
-$start = 0; // toto sa bude menit podla $_GET['page']
 $limit = 10;
-
+$start = isset($idPage) ? 
+   ($idPage - 1) * $limit : 0;
+$cena_od = (isset($_GET['cena_od']) ? $_GET['cena_od'] : 0); 
+$cena_do = (isset($_GET['cena_do']) && !empty($_GET['cena_do']) ? $_GET['cena_do'] : NULL);
+$hladaj = (isset($_GET['hladaj']) && !empty($_GET['hladaj']) ? $_GET['hladaj'] : NULL);
+// zoradovanie
 if (isset($_GET['ord'])) {
 	$getOrd = $_GET['ord'];
 	$orderingMap = [
@@ -26,10 +30,12 @@ if (isset($_GET['ord'])) {
 	$orderBy = 'RAND()';
 }
 
+// filtrovanie, napr. podla ceny_od, ceny_do
 $kniha = new Kniha;
-$listOfBooks = $kniha->getBooks($start, $limit, $orderBy);
-
-$pocetKnih = $kniha->getCount();
+$listOfBooks = $kniha->getBooks(
+	$start, $limit, $orderBy, $cena_od, $cena_do, $hladaj
+);
+$pocetKnih = $kniha->count;
 
 $data = [
 	'books' => $listOfBooks,

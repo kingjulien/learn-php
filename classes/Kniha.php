@@ -6,6 +6,7 @@ class Kniha extends Product {
 
 	protected $pocetStran;
 	protected $excerpt;
+	public $count;
 
 	public function setPocetStran($pocetStran) {
 		$this->pocetStran = $pocetStran;
@@ -33,15 +34,36 @@ class Kniha extends Product {
 	}
 
 	public function getBooks(
-		$from = 0, $limit = 10, $orderBy = 'RAND()'
+		$from = 0, $limit = 10, $orderBy = 'RAND()',
+		$cena_od = 0, $cena_do = NULL, $hladaj = NULL
 	) {
+		$this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES,false);
+
+		$whereSql = 'price >= :cena_od AND price <= :cena_do';
+		$whereHodnoty = [
+			'cena_od' => $cena_od,
+			'cena_do' => ($cena_do === NULL) ? '9999999' : $cena_do
+		]; // 999999 sa ma nahradit getMaxPrice()
+
+		if ($hladaj !== NULL) {
+			$whereSql .= ' AND MATCH(title,description) AGAINST (:hladaj)';
+			$whereHodnoty['hladaj'] = $hladaj;
+		}
+
 		$sth = $this->db->prepare(
 		  'SELECT id,title, price, description
 		    FROM ' . self::TABLE_NAME
+		    . ' WHERE ' . $whereSql
 		    . ' ORDER BY ' . $orderBy 
 		   . ' LIMIT ' . $from . ',' .  $limit
 		);
-		$sth->execute();
+		if (!$sth) {
+			print_r($this->db->errorInfo());
+			die;
+		}
+		$sth->execute(
+			$whereHodnoty
+		);
 
 		$books = [];
         while ($book = $sth->fetchObject(__CLASS__)) {
@@ -49,7 +71,8 @@ class Kniha extends Product {
         }
         // $books = $sth->fetchAll(\PDO::FETCH_CLASS, 'Classes\Kniha');
        
-		// $this->books = 
+		$this->count = $this->getCount($whereSql, $whereHodnoty);
+
 		return $books;
 	}
 
@@ -70,13 +93,15 @@ class Kniha extends Product {
 		return $books;
 	}
 
-	public function getCount() {
+	public function getCount($where, $whereHodnoty) {
 		// toto presunut inam
+		// $this->count = 
 
 		$sth = $this->db->prepare(
-		  'SELECT COUNT(*) as pocet FROM ' . self::TABLE_NAME
+		  'SELECT COUNT(*) as pocet FROM ' . self::TABLE_NAME .
+		  ' WHERE ' . $where
 		);
-		$sth->execute();
+		$sth->execute( $whereHodnoty );
 
 		$result = $sth->fetchAll();
 

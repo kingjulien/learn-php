@@ -1,6 +1,9 @@
-<?phpinfo
- // zoradLinka('nazov')
-?>
+<form action="/books" method="get">
+  Filter: <input type="text" name="cena_od" placeholder="cena od">
+  <input type="text" name="cena_do" placeholder="cena do">
+  <input type="text" name="hladaj" placeholder="Hladaj...">
+  <input type="submit" value="Filtruj">
+</form>
 
 <form action="/cart" method="post">
 <table class="table">
