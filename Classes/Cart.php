@@ -67,11 +67,7 @@ class Cart {
 		foreach (self::$items as $nakup) {
 			$mnozstvo = $nakup['mnozstvo'];
 			$kniha = $nakup['item'];
-			$cena = $kniha->price;
-			// $title = $kniha->title;
-
-			// $suma += $nakup['item']->price * $nakup['mnozstvo'];
-
+			$cena = $kniha->getPrice();
 			$suma = $suma + $cena * $mnozstvo;
 		}
 

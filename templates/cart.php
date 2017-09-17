@@ -16,6 +16,18 @@ Kosik
     	</tr>';
     }
   ?>
+
+<tr>
+<td>
+  <input type="submit" value="Objednat" name="objednat" />
+</td>
+<td><?=$suma ?></td>
+<td><?=$mnozstvo ?></td>
+<td>
+  <input type="submit" value="Zmazat" name="zmazat" />
+</td>
+</tr>
+
 </table>
-<input type="submit" value="Zaplatit" name="zaplat" />
+
 </form>

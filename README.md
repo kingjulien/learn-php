@@ -1,29 +1,46 @@
-Classes:
-- Kniha extends Products (pocetStran, ...)
--  inheritance - Automobil extends Products
-
-podstranku /cart (kosik)
-    - zobrazi produkty v kosiku
-
-- pridanie do kosika
-
-- pridajte checkbox - ze ktore knihy chcem, po kliku presmeruje na podstranku /cart
-- na podstranke /kosik checkboxy, ktore odstrania zo session
+- na podstranke /cart checkboxy, ktore odstrania zo session
 
 - strankovanie na /books (po 10)
     - funkciu
-
-class Kosik (Cart)
-    - __construct
-    - ... (Kniha $kniha, $mnozstvo = 1)
     - addToCart(), removeFromCart(), getItems()
     - na stranke /cart vypisovat aj mnozstvo v kosiku, aj v headeri
     - vypisat celkovu sumu - Kosik::calculateSum()
-
-
-
 
 --
 Error handling
 try / catch - exceptions
 
+---------------
+DB:
+- config file
+
+SQL:
+- structure
+- create, insert (foreach)
+- select from db ...
+- fulltext search
+
+PDO:
+- make connection
+- global $db; (singleton)
+- prepare
+- fetchObject
+
+Tasks:
+- class Knihy - getBooksByIds()
+- class Kniha - getById() cez DB
+
+- pridat formular, ktory ma moznosti na filtrovanie = search, cena od - do, limit, order/sort (GET params)
+    preposielanie parametrov - napr. limit zo search do getBooks
+
+     pre kazdy filter/sort pouzite vlastnu funckiu (ktora samozrejme moze pouzivat php funkcie), napr. sortArticlesByPrice()
+
+- pouzitim SESSION, aby pri vrateni sa na podstanku, bolo v policku pre vyhladavanie vo formulari to co som predtym hladal
+
+- podstranku /registracia
+- podstranku login
+  header('Location: ' . $_SERVER['REQUEST_URI']);
+- podstranku /admin/login
+
+- ulozenie objednavky do DB
+  - __sleep()
