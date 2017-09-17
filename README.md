@@ -1,27 +1,21 @@
-PHP intro
-
-Preco php
-https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/14445968_1127005000681710_3189057369042859379_n.jpg?efg=eyJpIjoidCJ9&oh=fed75493bfd53f371b38741f4587d8ea&oe=586C9A1F
-
-Diagram request response
-https://inspiretoshow.files.wordpress.com/2014/03/operation-trail.png
-
-Dynamickost stranok
-
-Server - xamp (apache...)
-
-PHP basic syntax
-<?php and ?>
-Variables, constants, types
-Statements - if, for, foreach, while
-
-
-Links:
-http://php.net/manual/en/index.php
+- type boolean, null value, isset, empty difference
+- spajanie stringov
+- phpinfo(), php.ini
+- ternarny operator
+- asociativne arrays
+- array functions - implode, explode, shift, pop, shuffle, ...
+- statements - if, for, foreach, while, break
+- zaklady s jednoduchymi objektami
+- citanie kodu + funny programming + programmers thinking (ulohy na rozmyslanie, exaktne/kreativne)
 
 
 Tasks:
-Vypiste cez php na stranku lubovolny text
-Vypiste ten text viackrat niekde v kode
-Zmente ten text
-Nahradte text za premennu... zmente znova
+- vypiste cisla od 1 po 100, potom od 20 po 50, potom kazde parne, potom delitelne 3
+- vypiste do tabulky mena svojich 10 kamaratov
+- pridajte 1, vymazte 1, vypiste len jedneho nahodneho
+- vypiste do tabulky jedalny listok
+- vypisat jedlo na dnesny den
+- vypisat 1 nahodne jedlo z jedalneho listka
+- pridajte do jedalneho listka aj meno kuchara, cenu a ci je to bezlepkove jedlo
+- napiste nekonecny cyklus (2 roznymi sposobmi)
+- d.z. - napiste (zakodujte do php kodu) nazov vasej oblubenej pesnicky, knihy, prislovie, ... ;)
