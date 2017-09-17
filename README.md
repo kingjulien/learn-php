@@ -1,17 +1,27 @@
-Pages
-- /etc/hosts
-- homepage.php, registration.php,....
-- rozbitie stránky na kúsky (componenty) - header, footer (include/require/..._once)
-- file_get_contents(), file(), curl ?
-- project structure (light mvc)
-- templates (php + html) + oddelenie vypoctovej logiky
-- zakladne spracovanie dát z formuláru, GET request, POST request, query string
-
+5
+- logicka uloha
+- academy tasks ukazat
+- mvc pattern (a ine - mvm, mva, mvp, ...)
+	- co su design patterns
+- router class napojit - flow - index.php,
+	Router.php, helpers/content.php,
+	pages/... , templates, layout...
+- data - s fncs - getList, getProduct, ...
+- default error page
+- podstranku /product - podla id produktu,
+	na ktoru sa bude odkazovat zo zoznamu produktov cez href
+slug fnc (z title produktu)
 
 Tasks:
-- vytvorte (kombinaciou html+php) stranky (page) 'homepage.php', 'registration.php',
-	'contact.php', 'about.php', ...
-- vytvorte komponenty (spolocne casti stranok) - 'header.php', 'footer.php', 'content.php', ... a pouzite na strankach (pages)
-- nech stranka 'homepage' zobrazi zoznam 5 clankov (html+php)
-- nech stranka 'registration' zobrazi registracny formular
-- nech registration.php vie spracovat data odoslane z formulara a vypise hlasku ci ok alebo nie
+- vytvorte fnc 'slug', var_dump s pre...
+- html helpers - parametrizovatelne fnc napr 'a href', <input type.... , <form ....
+- vytvorte formular, ktory ma moznosti na filtrovanie = search, cena od - do, limit, order/sort (GET params)
+- pre kazdy filter/sort pouzite vlastnu funckiu (ktora samozrejme moze pouzivat php funkcie), napr. sortArticlesByPrice()
+- flow - index.php,
+	Router.php, helpers/content.php,
+	pages/... , templates, layout...
+
+--------------------
+?
+- regex
+- JSON
