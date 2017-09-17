@@ -1,21 +1,17 @@
-- type boolean, null value, isset, empty difference
-- spajanie stringov
-- phpinfo(), php.ini
-- ternarny operator
-- asociativne arrays
-- array functions - implode, explode, shift, pop, shuffle, ...
-- statements - if, for, foreach, while, break
-- zaklady s jednoduchymi objektami
-- citanie kodu + funny programming + programmers thinking (ulohy na rozmyslanie, exaktne/kreativne)
+Pages
+- /etc/hosts
+- homepage.php, registration.php,....
+- rozbitie stránky na kúsky (componenty) - header, footer (include/require/..._once)
+- file_get_contents(), file(), curl ?
+- project structure (light mvc)
+- templates (php + html) + oddelenie vypoctovej logiky
+- zakladne spracovanie dát z formuláru, GET request, POST request, query string
 
 
 Tasks:
-- vypiste cisla od 1 po 100, potom od 20 po 50, potom kazde parne, potom delitelne 3
-- vypiste do tabulky mena svojich 10 kamaratov
-- pridajte 1, vymazte 1, vypiste len jedneho nahodneho
-- vypiste do tabulky jedalny listok
-- vypisat jedlo na dnesny den
-- vypisat 1 nahodne jedlo z jedalneho listka
-- pridajte do jedalneho listka aj meno kuchara, cenu a ci je to bezlepkove jedlo
-- napiste nekonecny cyklus (2 roznymi sposobmi)
-- d.z. - napiste (zakodujte do php kodu) nazov vasej oblubenej pesnicky, knihy, prislovie, ... ;)
+- vytvorte (kombinaciou html+php) stranky (page) 'homepage.php', 'registration.php',
+	'contact.php', 'about.php', ...
+- vytvorte komponenty (spolocne casti stranok) - 'header.php', 'footer.php', 'content.php', ... a pouzite na strankach (pages)
+- nech stranka 'homepage' zobrazi zoznam 5 clankov (html+php)
+- nech stranka 'registration' zobrazi registracny formular
+- nech registration.php vie spracovat data odoslane z formulara a vypise hlasku ci ok alebo nie
