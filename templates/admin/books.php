@@ -48,24 +48,21 @@ $(function() {
         var title =  $(`[name="title[${id}]"]`).val();
         var price =  $(`[name="price[${id}]"]`).val();
 
-       $.post('http://localhost/data/books/' + id, {
-          id,
-          title,
-          price
-       }).done(function(dataKtorePrisli) {
-
-
-          console.table(dataKtorePrisli);
-          // dataKtorePrisli.title
-       });
-
+        $.ajax( {
+          url: 'http://localhost/data/books/' + id,
+          type: 'PUT',
+          data: 'title=' + title + '&price=' + price,
+          processData: false,
+          contentType: false
+        } ).done(function(dataKtorePrisli) {
+          
+            console.table(dataKtorePrisli);
+            // dataKtorePrisli.title
+         });
       });
   });
 
   $('input[name="vytvor"]').on('click', function() {
-      var title =  $(`[name="title_nova"]`).val();
-      var price =  $(`[name="price_nova"]`).val();
-
       $.ajax( {
         url: 'http://localhost/data/books',
         type: 'POST',

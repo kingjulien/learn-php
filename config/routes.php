@@ -73,7 +73,7 @@ Router::route('POST', '/data/books', function($url){
 Router::route('GET', '/data/books/(\d+)', function($url){
   include '../pages/data/book.php';
 });
-Router::route('POST', '/data/books/(\d+)', function($url){
+Router::route('PUT', '/data/books/(\d+)', function($url, $id){
   include '../pages/data/bookSave.php';
 });
 
