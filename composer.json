@@ -9,7 +9,8 @@
         "files": [
             "functions/books.php",
             "functions/html.php",
-            "functions/content.php"
+            "functions/content.php",
+            "functions/pagination.php"
         ],
         "psr-4": {
             "Classes\\": "Classes/"

@@ -5,6 +5,7 @@ class Kniha extends Product {
 	const TABLE_NAME = 'products';
 
 	protected $pocetStran;
+	protected $excerpt;
 
 	public function setPocetStran($pocetStran) {
 		$this->pocetStran = $pocetStran;
@@ -67,5 +68,30 @@ class Kniha extends Product {
         }
 
 		return $books;
+	}
+
+	public function getCount() {
+		// toto presunut inam
+
+		$sth = $this->db->prepare(
+		  'SELECT COUNT(*) as pocet FROM ' . self::TABLE_NAME
+		);
+		$sth->execute();
+
+		$result = $sth->fetchAll();
+
+		return $result[0]['pocet'];
+	}
+
+
+	public function __sleep() {
+		return [
+			'id',
+			'title',
+			'description',
+			'price',
+			'excerpt',
+			'pocetStran'
+		];
 	}
 }

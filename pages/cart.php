@@ -8,10 +8,10 @@ if (isset($_POST['vlozKnihy'])) {
   // var_dump($_POST);
 
   if (isset($_POST['doKosika'])) {
-	  foreach ($_POST['doKosika'] as $idKnihy) {
-	  	// $kniha = new Kniha;
-	  	$vlozenaKniha = getBook($idKnihy);
+  	  $kniha = new Kniha;
+      $knihyKtoreChceDatDoKosika = $kniha->getByIds($_POST['doKosika']);
 
+	  foreach ($knihyKtoreChceDatDoKosika as $vlozenaKniha) {
 	  	try {
 	  	  Cart::addToCart($vlozenaKniha);
 	  	  // code dalsi
@@ -20,7 +20,6 @@ if (isset($_POST['vlozKnihy'])) {
 	  	} catch (\Exception $exception) {
 	  		var_dump($exception->getMessage());
 	  		die;
-
 	  	}
 
 	  }

@@ -1,37 +1,35 @@
----------------
-DB:
-- fulltext search
-	- like %
-- indexes
-
-Tasks:
-- getById() cez DB
-- podstranku /book z DB
-- getByIds()
-- rand
-
-- strankovanie
-  getCount()
-
-- objednavky tabulka (user_id NULL)
-
-- ulozenie objednavky do DB
-  - __sleep()
-
-- kniha - autor join - foreign keys
-
-- parametre do getBooks - ids, order (default rand()), search
-
-
 - pridat formular, ktory ma moznosti na filtrovanie = search, cena od - do, limit, order/sort (GET params)
     preposielanie parametrov - napr. limit zo search do getBooks
 
-     pre kazdy filter/sort pouzite vlastnu funckiu (ktora samozrejme moze pouzivat php funkcie), napr. sortArticlesByPrice()
+
+---------------
+Tasks:
+- strankovanie
+  getCount() - SELECT COUNT(*) FROM products
+- vyhladavanie
+	- fulltext search
+		- like %
+	- indexes
+
+- filtrovanie , napr. cena od - do
+	- getBooks - nastavit do $this->books (kvoli getCount())
+
+
+
+- objednavky tabulka (user_id NULL)
+- ulozenie objednavky do DB
+- kniha - autor join - foreign keys, indexes
+- sql export/import (dump)
+
 
 - podstranku /registracia
 - podstranku login
   header('Location: ' . $_SERVER['REQUEST_URI']);
+
+- podstranka /logout
 - podstranku /admin/login
 
 - podstranka /user/details
 - podstranka /user/objednavky
+
+- na kosiku, ci je prihlaseny, ked hej, tak predyplnit jeho udaje do form

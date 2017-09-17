@@ -42,24 +42,22 @@ $data = [
  *
  */
 
-  function pagination( $slug, $products, $itemsPerPage = 10, $idPage ){
+  function pagination( $slug, $count, $itemsPerPage = 10, $idPage ) {
 
-    $allItems = count( $products );
-    $li = ceil( $allItems/$itemsPerPage );
-
+    $li = ceil( $count / $itemsPerPage );
 
     $pagination  = '<ul class="pagination">';
 
-    for($p = 1; $p <= $li; $p++){        
+    for($p = 1; $p <= $li; $p++) {
         $pagination .= '<li ';
         $pagination .=  ( $idPage == $p )   ? ' class="active" ' : '';
-        $pagination .= ' ><a ' . $activePage .' href="/' . $slug. '/' . $p . '">' . $p . '</a></li>';
+        $pagination .= ' ><a href="/' . $slug. '/' . $p . '?' . http_build_query($_GET) .  '">' . $p . '</a></li>';
     };
     
     $pagination .= '</ul>';
 
 
-    echo $pagination;
+    return $pagination;
 
  }
 

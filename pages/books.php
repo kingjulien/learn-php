@@ -3,7 +3,7 @@
 use Classes\Kniha;
 
 $start = 0; // toto sa bude menit podla $_GET['page']
-$limit = 15;
+$limit = 10;
 
 if (isset($_GET['ord'])) {
 	$getOrd = $_GET['ord'];
@@ -16,7 +16,11 @@ if (isset($_GET['ord'])) {
 		  array_key_exists($getOrd, $orderingMap) ?
 		  $orderingMap[$getOrd] :
 		  'RAND()'
-	); 
+	);
+
+    // ORDER BY title ASC / DESC
+	$orderBy .= (isset($_GET['sort']) && $_GET['sort'] === 'dole')
+			 ? ' DESC' : ' ASC';
 
 } else {
 	$orderBy = 'RAND()';
@@ -25,8 +29,13 @@ if (isset($_GET['ord'])) {
 $kniha = new Kniha;
 $listOfBooks = $kniha->getBooks($start, $limit, $orderBy);
 
+$pocetKnih = $kniha->getCount();
+
 $data = [
-	'books' => $listOfBooks
+	'books' => $listOfBooks,
+	'pocetKnih' => $pocetKnih,
+     'itemsPerPage' => $limit,
+     'idPage' => isset($idPage) ? $idPage : 1
 ];
 
 $content = getContent(
