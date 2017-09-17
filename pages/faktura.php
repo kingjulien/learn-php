@@ -19,7 +19,7 @@ $html .= '<p>Datum: ' . date('d.m.Y', $faktura['datum']);
 $html .= '</p>';
 $html .= 'Zoznam nakupeneho tovaru:';
 $html .= '<table class="table">
-  			<tr><th>Nazov</th><th>Cena</th><th>Mnozstvo</th>';
+  			<tr><th>Názov</th><th>Cena</th><th>Mnozstvo</th>';
   	$suma = 0;
 	foreach ($kosik as $kniha) {
   		$suma = $suma + $kniha['item']->getPrice() * $kniha['mnozstvo'];
@@ -30,6 +30,8 @@ $html .= '<table class="table">
   				</tr>';
 	}
 $html .= '</table>';
+
+$html = mb_convert_encoding($html, 'UTF-8', 'UTF-8');
 
 $mpdf->WriteHTML(sprintf($html, $idFaktury));
 $mpdf->Output('faktura.pdf', 'D');

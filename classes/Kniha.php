@@ -6,6 +6,10 @@ class Kniha extends Product {
 
 	protected $pocetStran;
 	protected $excerpt;
+	public $autor_meno;
+	public $autor_narodenie;
+	public $autor_popis;
+
 	public $count;
 
 	public function setPocetStran($pocetStran) {
@@ -51,8 +55,12 @@ class Kniha extends Product {
 		}
 
 		$sth = $this->db->prepare(
-		  'SELECT id,title, price, description
+		  'SELECT ' . self::TABLE_NAME . '.id, title, price, description,
+		  	authors.meno as autor_meno,
+		  	authors.narodenie as autor_narodenie,
+		  	authors.popis as autor_popis
 		    FROM ' . self::TABLE_NAME
+		    . ' JOIN authors ON  ' . self::TABLE_NAME . '.authorId = authors.id'
 		    . ' WHERE ' . $whereSql
 		    . ' ORDER BY ' . $orderBy 
 		   . ' LIMIT ' . $from . ',' .  $limit

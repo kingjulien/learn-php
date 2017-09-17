@@ -1,5 +1,13 @@
 <?php
 
+$filename = '../cache/books.htm';
+
+if (filemtime($filename) > (time() - 60  )) {
+	$cachedHtml = file_get_contents($filename);
+	echo $cachedHtml;
+	exit;
+}
+
 use Classes\Kniha;
 
 $limit = 10;
@@ -50,4 +58,11 @@ $content = getContent(
 );
 
 // html vystup - layout (view)
+ob_start();
 include '../templates/layout.php';
+$html = ob_get_contents();
+ob_end_clean();
+
+file_put_contents('../cache/books.htm', $html);
+
+echo $html;

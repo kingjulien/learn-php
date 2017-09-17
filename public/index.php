@@ -22,6 +22,20 @@ try {
   die();
 }
 
+$user = new Classes\User;
+// kontrola ci pre user stranky je prihlaseny ako user
+if (preg_match('/user/', $_SERVER['REQUEST_URI'])) {
+ if (!$user->isLoggedIn()) {
+  header('Location: /registration');
+  die;
+ }
+}
+
+// kontrola ci pre user stranky je prihlaseny ako user
+if (preg_match('/admin/', $_SERVER['REQUEST_URI'])) {
+ 
+}
+
 require '../middleware/login.php'; // musi byt az po session_start()
 
 use Classes\Cart;

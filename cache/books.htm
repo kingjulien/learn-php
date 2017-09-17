@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PHP!</title>
+    <link rel="stylesheet" href="/dist/bootstrap.css">
+    <script src="/dist/bootstrap.min.js"></script>
+  </head>
+  <body
+
+    <header>
+<nav>
+	<a href="/">Home</a>
+	<a href="/books">Kniha</a>
+</nav>
+
+<form action="/books" method="post">
+
+    <label>login: <input type="text" name="login"></label>
+    <label>heslo: <input type="password" name="heslo"></label>
+    <input type="submit" value="Prihlasit" name="prihlas">
+
+
+</form>
+</header>    <div id="content"><form action="/books" method="get">
+  Filter: <input type="text" name="cena_od" placeholder="cena od">
+  <input type="text" name="cena_do" placeholder="cena do">
+  <input type="text" name="hladaj" placeholder="Hladaj...">
+  <input type="submit" value="Filtruj">
+</form>
+
+<form action="/cart" method="post">
+<table class="table">
+  <tr>
+    <th><a href="?sort=dole&ord=nazov">Nazov</a></th>
+    <th><a href="?sort=dole&ord=cena">Cena</a></th>
+    <th><a href="?sort=dole&ord=autor_meno">Autor</a></th>
+    <th>action</th>
+  </tr>
+  <tr>
+    	<td><a href="/book/kniha-451/451">Kniha 451</a>
+    	</td>
+    	<td>82,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="451" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-472/472">Kniha 472</a>
+    	</td>
+    	<td>53,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="472" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-349/349">Kniha 349</a>
+    	</td>
+    	<td>39,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="349" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-392/392">Kniha 392</a>
+    	</td>
+    	<td>93,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="392" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-295/295">Kniha 295</a>
+    	</td>
+    	<td>3,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="295" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-300/300">Kniha 300</a>
+    	</td>
+    	<td>98,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="300" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-463/463">Kniha 463</a>
+    	</td>
+    	<td>17,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="463" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-437/437">Kniha 437</a>
+    	</td>
+    	<td>45,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="437" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-404/404">Kniha 404</a>
+    	</td>
+    	<td>62,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="404" /></td>
+    	</tr><tr>
+    	<td><a href="/book/kniha-482/482">Kniha 482</a>
+    	</td>
+    	<td>81,00</td>
+      <td>Hemingway</td>
+    	<td><input type="checkbox" name="doKosika[]" value="482" /></td>
+    	</tr></table>
+<input type="submit" value="Vlozit do Kosika" name="vlozKnihy" />
+</form>
+
+<ul class="pagination"><li  class="active"  ><a href="/books/1?">1</a></li><li  ><a href="/books/2?">2</a></li><li  ><a href="/books/3?">3</a></li><li  ><a href="/books/4?">4</a></li><li  ><a href="/books/5?">5</a></li><li  ><a href="/books/6?">6</a></li><li  ><a href="/books/7?">7</a></li><li  ><a href="/books/8?">8</a></li><li  ><a href="/books/9?">9</a></li><li  ><a href="/books/10?">10</a></li><li  ><a href="/books/11?">11</a></li><li  ><a href="/books/12?">12</a></li><li  ><a href="/books/13?">13</a></li><li  ><a href="/books/14?">14</a></li><li  ><a href="/books/15?">15</a></li><li  ><a href="/books/16?">16</a></li><li  ><a href="/books/17?">17</a></li><li  ><a href="/books/18?">18</a></li><li  ><a href="/books/19?">19</a></li><li  ><a href="/books/20?">20</a></li><li  ><a href="/books/21?">21</a></li><li  ><a href="/books/22?">22</a></li><li  ><a href="/books/23?">23</a></li><li  ><a href="/books/24?">24</a></li><li  ><a href="/books/25?">25</a></li><li  ><a href="/books/26?">26</a></li><li  ><a href="/books/27?">27</a></li><li  ><a href="/books/28?">28</a></li><li  ><a href="/books/29?">29</a></li><li  ><a href="/books/30?">30</a></li><li  ><a href="/books/31?">31</a></li><li  ><a href="/books/32?">32</a></li><li  ><a href="/books/33?">33</a></li><li  ><a href="/books/34?">34</a></li><li  ><a href="/books/35?">35</a></li><li  ><a href="/books/36?">36</a></li><li  ><a href="/books/37?">37</a></li><li  ><a href="/books/38?">38</a></li><li  ><a href="/books/39?">39</a></li><li  ><a href="/books/40?">40</a></li><li  ><a href="/books/41?">41</a></li><li  ><a href="/books/42?">42</a></li><li  ><a href="/books/43?">43</a></li><li  ><a href="/books/44?">44</a></li><li  ><a href="/books/45?">45</a></li><li  ><a href="/books/46?">46</a></li><li  ><a href="/books/47?">47</a></li><li  ><a href="/books/48?">48</a></li><li  ><a href="/books/49?">49</a></li><li  ><a href="/books/50?">50</a></li></ul>
+
+V nasom eshope je 500 knih</div>
+
+    <footer>
+	toto je footer
+
+20.06.2017 18:59:51    </footer>
+  </body>
+</html>  </body>
+</html>

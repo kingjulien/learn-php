@@ -9,14 +9,17 @@
 <table class="table">
   <tr>
     <th><a href="<?= zoradQueryString('nazov') ?>">Nazov</a></th>
-    <th><a href="<?= zoradQueryString('cena') ?>">Cena</a></th><th>action</th>
+    <th><a href="<?= zoradQueryString('cena') ?>">Cena</a></th>
+    <th><a href="<?= zoradQueryString('autor_meno') ?>">Autor</a></th>
+    <th>action</th>
   </tr>
   <?php
     foreach ($books as $book) {
-    	echo '<tr>'
-    	. '<td><a href="' . $book->getUrl() . '">' . $book->getTitle() . '</a>
-    	  </td>'
-    	. '<td>' . priceFormat($book->getPrice()) . '</td>
+    	echo '<tr>
+    	<td><a href="' . $book->getUrl() . '">' . $book->getTitle() . '</a>
+    	</td>
+    	<td>' . priceFormat($book->getPrice()) . '</td>
+      <td>' . $book->autor_meno . '</td>
     	<td><input type="checkbox" name="doKosika[]" value="' . $book->getId()  . '" /></td>
     	</tr>';
     }
