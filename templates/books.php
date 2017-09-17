@@ -1,6 +1,9 @@
 <form action="/cart" method="post">
 <table class="table">
-  <tr><th>Nazov</th><th>Cena</th><th>action</th></tr>
+  <tr>
+    <th><a href="<?= zoradLinka('nazov') ?>">Nazov</a></th>
+    <th><a href="<?= zoradLinka('cena') ?>">Cena</a></th><th>action</th>
+  </tr>
   <?php
     foreach ($books as $book) {
     	echo '<tr>'

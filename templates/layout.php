@@ -19,7 +19,8 @@
     <div id="content"><?= $content; ?></div>
 
     <?php
-      $pozeraneKnihy = [];
+      $kniha = new Classes\Kniha;
+      $idPzeranychKnih = [];
       if (isset($_COOKIE['pozeraneKnihy'])) {
         $count = count($_COOKIE['pozeraneKnihy']);
         for ($index = $count - 1;
@@ -27,15 +28,11 @@
           $index--
         ) {
           $idKnihy = $_COOKIE['pozeraneKnihy'][$index];
-          $pozeraneKnihy[] = getBook($idKnihy);
+          $idPozeranychKnih[] = $idKnihy;
         }
-
-        /*
-        foreach ($_COOKIE['pozeraneKnihy'] as $idKnihy=>$value) {
-          $pozeraneKnihy[] = getBook($idKnihy);
-        }
-        */
       }
+
+      $pozeraneKnihy = $kniha->getByIds($idPozeranychKnih);
 
       // vypis footer
       include 'footer.php';

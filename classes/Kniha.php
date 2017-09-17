@@ -6,13 +6,6 @@ class Kniha extends Product {
 
 	protected $pocetStran;
 
-	public function __construct(
-		$id = 0, $title = '', $price = 0
-	) {
-	  
-	  parent::__construct($id, $title, $price);
-	}
-
 	public function setPocetStran($pocetStran) {
 		$this->pocetStran = $pocetStran;
 	}
@@ -26,40 +19,53 @@ class Kniha extends Product {
 
 	public function getById( $idKnihy ) {
 	  // vytiahni z DB 1 knihu
-	  // SELECT ....
+	  $sth = $this->db->prepare(
+		'SELECT id, title, price, description
+		    FROM ' . self::TABLE_NAME
+		   . ' WHERE `id` = :id LIMIT 1'
+	  );
+	  $sth->execute(['id' => $idKnihy]);
 
-	  $allBooks = getAllBooks();
-	  $oneBook = $allBooks[  $idKnihy  ];
+	  $oneBook = $sth->fetchObject(__CLASS__);
 
 	  return $oneBook;
 	}
 
-	public function getBooks($limit = 10) {
-		global $db;
-
-        // $this->db
-
-		// odkial $db ziskame ?
-		$sth = $db->prepare(
-		  'SELECT title, price, description
+	public function getBooks(
+		$from = 0, $limit = 10, $orderBy = 'RAND()'
+	) {
+		$sth = $this->db->prepare(
+		  'SELECT id,title, price, description
 		    FROM ' . self::TABLE_NAME
-		   . ' LIMIT ' . $limit
+		    . ' ORDER BY ' . $orderBy 
+		   . ' LIMIT ' . $from . ',' .  $limit
 		);
 		$sth->execute();
-	
-		// random
 
 		$books = [];
-        while ($book = $sth->fetchObject('Classes\Kniha')) {
+        while ($book = $sth->fetchObject(__CLASS__)) {
           $books[] = $book;
-          var_dump($book); die;
         }
         // $books = $sth->fetchAll(\PDO::FETCH_CLASS, 'Classes\Kniha');
        
-        var_dump($books);
-
-
 		// $this->books = 
+		return $books;
+	}
+
+
+	public function getByIds(array $ids) {
+		$sth = $this->db->prepare(
+		  'SELECT id,title, price, description
+		    FROM ' . self::TABLE_NAME
+		   . ' WHERE id IN(' . implode(',', $ids) .  ')'
+		);
+		$sth->execute();
+	
+		$books = [];
+        while ($book = $sth->fetchObject(__CLASS__)) {
+          $books[] = $book;
+        }
+
 		return $books;
 	}
 }

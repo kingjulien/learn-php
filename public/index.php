@@ -139,7 +139,7 @@ Router::route('GET', '/kontakt', function($url){
   include '../pages/kontakt.php';
 });
 
-Router::route('GET', '/books', function($url){
+Router::route('GET', '/books(.*)', function($url){
   include '../pages/books.php';
 });
 

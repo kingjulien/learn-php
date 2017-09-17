@@ -16,7 +16,8 @@ if (!isset($_COOKIE['pozeraneKnihy']) || !in_array($idBook, $_COOKIE['pozeraneKn
 	);
 }
 
-$tuMiVratiKnihuGetBookFunkcia = getBook($idBook);
+$kniha = new Classes\Kniha;
+$tuMiVratiKnihuGetBookFunkcia = $kniha->getById($idBook);
 
 $data = [
   'kniha' => $tuMiVratiKnihuGetBookFunkcia,
