@@ -1,6 +1,33 @@
 <?php
 
-// header('Content-Type: text/json');
+session_start();
+
+// setcookie ('meno', $meno, 1579233353, '/'); //, '', true, true);
+// setcookie
+/*
+$_SESSION['meno'] = 'moje meno';
+
+var_dump($_SESSION['meno']);
+
+die;
+*/
+
+// echo session_save_path();
+
+/*
+// setcookie ('meno', 'Janko', 9579233353, "/"); //, "" [, bool $secure = false [, bool $httponly = false ]]]]]] )
+// setcookie('meno', 'erik');
+
+setcookie('meno', null, -1, '/');
+
+var_dump($_COOKIE);
+
+unset($_SESSION);
+
+var_dump($_SESSION);
+
+die;
+*/
 
 //require '../config/db.php';
 require_once '../functions/content.php';
@@ -39,6 +66,12 @@ Router::route('GET', '/admin/books', function($url){
 // data
 Router::route('GET', '/data/books', function($url){
   include '../pages/data/books.php';
+});
+Router::route('GET', '/data/books/(\d+)', function($url){
+  include '../pages/data/book.php';
+});
+Router::route('POST', '/data/books/(\d+)', function($url){
+  include '../pages/data/bookSave.php';
 });
 
 Router::execute();

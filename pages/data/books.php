@@ -1,6 +1,7 @@
 <?php
 
 header('Content-Type: text/json');
+header('Access-Control-Allow-Origin: *');
 
 $listOfBooks = [];
 for ($i=1; $i < 101; $i++) { 
