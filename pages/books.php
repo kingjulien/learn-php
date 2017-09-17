@@ -1,6 +1,10 @@
 <?php
 
-$listOfBooks = getAllBooks();
+use Classes\Kniha;
+
+$kniha = new Kniha;
+$listOfBooks = $kniha->getBooks();
+
 $data = [
 	'books' => $listOfBooks
 ];

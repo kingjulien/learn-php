@@ -1,15 +1,3 @@
-- na podstranke /cart checkboxy, ktore odstrania zo session
-
-- strankovanie na /books (po 10)
-    - funkciu
-    - addToCart(), removeFromCart(), getItems()
-    - na stranke /cart vypisovat aj mnozstvo v kosiku, aj v headeri
-    - vypisat celkovu sumu - Kosik::calculateSum()
-
---
-Error handling
-try / catch - exceptions
-
 ---------------
 DB:
 - config file
@@ -23,7 +11,7 @@ SQL:
 PDO:
 - make connection
 - global $db; (singleton)
-- prepare
+- prepare - sql injection example (login)
 - fetchObject
 
 Tasks:
@@ -42,5 +30,8 @@ Tasks:
   header('Location: ' . $_SERVER['REQUEST_URI']);
 - podstranku /admin/login
 
+- objednavky tabulka (user_id NULL)
 - ulozenie objednavky do DB
   - __sleep()
+
+- kniha - autor join
