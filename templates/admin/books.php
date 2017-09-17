@@ -1,4 +1,11 @@
 Zoznam knih
+<form class="nova">
+  <input type="text" name="title_nova" />
+  <input type="text" name="price_nova" />
+  <input type="file" name="obrazok" />
+  <input type="button" name="vytvor" value="Vytvor" />
+</form>
+
 <form>
 <table class="table" id="books">
 
@@ -39,20 +46,37 @@ $(function() {
         var title =  $(`[name="title[${id}]"]`).val();
         var price =  $(`[name="price[${id}]"]`).val();
 
-        console.log(title, price);
-
        $.post('http://localhost/data/books/' + id, {
           id,
           title,
           price
        }).done(function(dataKtorePrisli) {
-          console.log(dataKtorePrisli);
+
+
+          console.table(dataKtorePrisli);
           // dataKtorePrisli.title
        });
 
       });
   });
 
+  $('input[name="vytvor"]').on('click', function() {
+      var title =  $(`[name="title_nova"]`).val();
+      var price =  $(`[name="price_nova"]`).val();
+
+      $.ajax( {
+        url: 'http://localhost/data/books',
+        type: 'POST',
+        data: new FormData( $('form.nova')[0] ),
+        processData: false,
+        contentType: false
+      } ).done(function(dataKtorePrisli) {
+        
+          console.table(dataKtorePrisli);
+          // dataKtorePrisli.title
+       });
+
+  });
   
 });
 </script>

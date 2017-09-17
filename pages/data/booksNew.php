@@ -3,32 +3,34 @@
 header('Content-Type: text/json');
 header('Access-Control-Allow-Origin: *');
 
-$id = $_POST['id'];
+
+// obrazok, ktory nahrava
+var_dump($_FILES);
+
+
+die;
+
+// cena, title
 $price = $_POST['price'];
 $title = $_POST['title'];
 
 // validacia vstupu
-if (!is_numeric($id)) {
+if (empty($title)) {
 	header("HTTP/1.1 400 Bad Request");
 	$data = [
 	  'errorCode' => 350,
-	  'errorMessage' => 'nevyplnene id'
+	  'errorMessage' => 'nevyplneny nazov'
     ];
 } else {
 	// tu sa bude ukladat do DB zmena
 	$kniha = new Classes\Kniha;
-
-	$kniha->edit( $id, $title, $price, '', 1  );
-
+	$vytvorenaKniha = $kniha->add( $title, $price, '', 1  );
 
 	$data = (object) [
-		'id' => $id,
-		'title' => $title,
-		'price' => $price,
-		'url' => buildBookUrl(
-			$title,
-			$id
-		)
+		'id' => $vytvorenaKniha-getId(),
+		'title' => $vytvorenaKniha->getTitle(),
+		'price' => $vytvorenaKniha->getPrice(),
+		'url' => $vytvorenaKniha->getUrl()
 	];
 }
 

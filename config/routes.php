@@ -67,6 +67,9 @@ Router::route('GET', '/admin/books', function($url){
 Router::route('GET', '/data/books', function($url){
   include '../pages/data/books.php';
 });
+Router::route('POST', '/data/books', function($url){
+  include '../pages/data/booksNew.php';
+});
 Router::route('GET', '/data/books/(\d+)', function($url){
   include '../pages/data/book.php';
 });

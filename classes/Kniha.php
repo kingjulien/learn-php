@@ -58,7 +58,8 @@ class Kniha extends Product {
 		  'SELECT ' . self::TABLE_NAME . '.id, title, price, description,
 		  	authors.meno as autor_meno,
 		  	authors.narodenie as autor_narodenie,
-		  	authors.popis as autor_popis
+		  	authors.popis as autor_popis,
+		  	authors.id as authorId
 		    FROM ' . self::TABLE_NAME
 		    . ' JOIN authors ON  ' . self::TABLE_NAME . '.authorId = authors.id'
 		    . ' WHERE ' . $whereSql
@@ -116,7 +117,6 @@ class Kniha extends Product {
 		return $result[0]['pocet'];
 	}
 
-
 	public function __sleep() {
 		return [
 			'id',
@@ -127,4 +127,34 @@ class Kniha extends Product {
 			'pocetStran'
 		];
 	}
+
+
+	public function edit( $id, $nazov, $cena, $popis, $authorId  ) {
+        
+        $sql = 'UPDATE `products` SET title = :title,
+                description = :description,
+                price = :price,
+                authorId = :authorId
+                WHERE id = :id
+        ';
+
+		$this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES,false);
+
+        $query = $this->db->prepare($sql);
+        if (!$query) {
+			print_r($this->db->errorInfo());
+			return false;
+		}
+        $query->execute(array(
+            ':id' => $id,
+            ':title' => $nazov,
+            ':description' => $popis,
+            ':price' => $cena,
+            ':authorId' => $authorId
+        ));
+
+        
+
+        return true;
+    }
 }
