@@ -1,6 +1,6 @@
 <?php namespace Classes;
 
-class Product {
+abstract class Product {
 
 	protected $id;
 	protected $title;
@@ -55,6 +55,26 @@ class Product {
 	public function getTitle() {
 		
 		return $this->title;
+	}
+
+	public function getPrice() {
+		
+		return $this->price;
+	}
+
+    public function getDescription() {
+		
+		return $this->description;
+	}
+
+	public function getUrl() {
+		
+		return $this->url;
+	}
+
+	public function getId() {
+		
+		return $this->id;
 	}
 
 }

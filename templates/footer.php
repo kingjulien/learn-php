@@ -3,7 +3,7 @@
 
 <?php
      foreach($pozeraneKnihy as $pozeraneKniha)  {
-       var_dump($pozeraneKniha);
+       // var_dump($pozeraneKniha);
      }
 
 ?>

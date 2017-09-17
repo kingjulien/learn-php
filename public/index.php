@@ -4,6 +4,8 @@ require '../vendor/autoload.php';
 
 session_start();
 
+// var_dump($_SESSION);
+
 /*
 use Classes\Kniha;
 
@@ -43,6 +45,9 @@ die;
 */
 
 use Classes\Router;
+use Classes\Cart;
+
+Cart::init();
 
 // routes
 Router::route('GET', '/', function($url){
@@ -59,6 +64,14 @@ Router::route('GET', '/books', function($url){
 
 Router::route('GET', '/book/(.*)/(\d+)', function($url, $slug, $idBook){
   include '../pages/book.php';
+});
+
+Router::route('GET', '/cart', function($url){
+  include '../pages/cart.php';
+});
+
+Router::route('POST', '/cart', function($url){
+  include '../pages/cart.php';
 });
 
 // default error page

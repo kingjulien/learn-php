@@ -24,5 +24,15 @@ class Kniha extends Product {
 		$firstWord = explode(' ', $this->title)[0];
 
 		return $firstWord;
-	}	
+	}
+
+	public function getById( $idKnihy ) {
+	  // vytiahni z DB 1 knihu
+	  // SELECT ....
+
+	  $allBooks = getAllBooks();
+	  $oneBook = $allBooks[  $idKnihy  ];
+
+	  return $oneBook;
+	}
 }
