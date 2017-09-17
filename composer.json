@@ -3,7 +3,8 @@
 	"description": "mini eshop example",
     "require": {
         "bacon/bacon-qr-code": "^1.0",
-		"catfan/medoo": "^1.2"
+		"catfan/medoo": "^1.2",
+		"mpdf/mpdf": "^6.1"
     },
     "autoload": {
         "files": [

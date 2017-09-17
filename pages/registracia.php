@@ -4,16 +4,19 @@
 // po odoslani (POST) - to co zadal do inputu
 
 $meno = isset($_POST['meno']) ? htmlentities($_POST['meno']) : '';
+$chyba = '';
+$user = new Classes\User;
 
 if (isset($_POST['registruj'])) {
 	// chce sa registrovat
-	// validacia
 
-	$clovek = ''; // tu sa zisti ci uz taky je v DB
+	// tu sa zisti ci uz taky je v DB
+	$clovek = $user->getUserByEmail($_POST['email']);
 	// var_dump($clovek);
 	if (!empty($clovek)) {
-		$chyba = 'Vami zvoleny email, prosim zvolte si ine';
+		$chyba = 'Vami zvoleny email uz u nas evidujeme, prosim zvolte si ine';
 	} elseif (
+	    // validacia
 		empty($_POST['meno'])
 		or empty($_POST['email'])
 		or empty($_POST['telefon'])
@@ -38,8 +41,8 @@ if (isset($_POST['registruj'])) {
 		);
 		$user->add($userInfo);
 		// chod tam odkial si prisiel
-		header('Location: ' . $_SERVER['HTTP_REFERER']);
-		header('Location: /zaregistroval');
+		//header('Location: ' . $_SERVER['HTTP_REFERER']);
+		//header('Location: /zaregistroval');
 	}
 
 }
