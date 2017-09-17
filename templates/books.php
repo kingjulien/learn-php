@@ -11,6 +11,7 @@
     <th><a href="<?= zoradQueryString('nazov') ?>">Nazov</a></th>
     <th><a href="<?= zoradQueryString('cena') ?>">Cena</a></th>
     <th><a href="<?= zoradQueryString('autor_meno') ?>">Autor</a></th>
+    <th>Obrazok</th>
     <th>action</th>
   </tr>
   <?php
@@ -20,6 +21,7 @@
     	</td>
     	<td>' . priceFormat($book->getPrice()) . '</td>
       <td>' . $book->autor_meno . '</td>
+      <td><img src="' . $book->getImageUrl($book->getId()) .  ' " /></td>
     	<td><input type="checkbox" name="doKosika[]" value="' . $book->getId()  . '" /></td>
     	</tr>';
     }

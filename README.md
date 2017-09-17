@@ -1,20 +1,11 @@
-
-- /admin
-- /admin/login
-
-
-- /admin/products
-	- zoznam
++ subor nahrat - ulozit
+- obrazky zobrazit na stranke 
 
 
-- /admin/product
-	- formular na pridat/upravit
-	- file upload - helpers/upload.php
-- /admin/objednavky
-	- edit
+- edit - PUT
 	- PUT
 
-- REST (vyskusat cez curl napr.)
+- REST
 
 - email send
 http://php.net/manual/en/function.mail.php

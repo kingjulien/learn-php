@@ -1,8 +1,10 @@
 Zoznam knih
 <form class="nova">
-  <input type="text" name="title_nova" />
-  <input type="text" name="price_nova" />
-  <input type="file" name="obrazok" />
+  <input type="text" name="title_nova" placeholder="Nazov" />
+  <input type="text" name="price_nova" placeholder="Cena" />
+  <input type="hidden" name="author_nova" value="1" />
+  <textarea name="description_nova"></textarea>
+  <input type="file" name="obrazok[]" multiple />
   <input type="button" name="vytvor" value="Vytvor" />
 </form>
 

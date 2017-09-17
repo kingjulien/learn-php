@@ -12,6 +12,25 @@ class Kniha extends Product {
 
 	public $count;
 
+	public function getImageUrl($idKnihy) {
+		
+		$cesta = __DIR__ . '/../public/fotky/' . $idKnihy;
+
+		$obrazky = [];
+			
+		if (is_dir($cesta)) {
+			$adresar = opendir($cesta);
+		    while (  (  $file = readdir($adresar)   ) !== false) {
+			      if ($file !== '.' && $file !== '..') {
+			      		$obrazky[] = $file;
+			      }
+		    }
+	    closedir($adresar);
+	  }
+
+		return '/fotky/' . $idKnihy . '/' . $obrazky[0];
+	}
+
 	public function setPocetStran($pocetStran) {
 		$this->pocetStran = $pocetStran;
 	}
@@ -156,5 +175,34 @@ class Kniha extends Product {
         
 
         return true;
+    }
+
+
+    public function add( $nazov, $cena, $popis, $authorId ) {
+        
+        $sql = 'INSERT INTO `products`
+        		(title, description, price, authorId)
+        		VALUES (:title, :description, :price, :authorId)
+        ';
+
+		$this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES,false);
+
+        $query = $this->db->prepare($sql);
+        if (!$query) {
+			print_r($this->db->errorInfo());
+			return false;
+		}
+        $query->execute(array(
+            ':title' => $nazov,
+            ':description' => $popis,
+            ':price' => $cena,
+            ':authorId' => $authorId
+        ));
+
+        $idVytvorenejKnihy = $this->db->lastInsertId();
+
+        $vytvorenaKniha = $this->getById($idVytvorenejKnihy);
+
+        return $vytvorenaKniha;
     }
 }

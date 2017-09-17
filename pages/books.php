@@ -2,7 +2,7 @@
 
 $filename = '../cache/books.htm';
 
-if (filemtime($filename) > (time() - 60  )) {
+if (filemtime($filename) > (time() - 0  )) {
 	$cachedHtml = file_get_contents($filename);
 	echo $cachedHtml;
 	exit;

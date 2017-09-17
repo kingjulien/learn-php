@@ -13,9 +13,13 @@
 	<a href="/books">Kniha</a>
 </nav>
 
-<form action="/books" method="post">
+<form action="/books/1?cena_od=&cena_do=&sort=dole&ord=nazov" method="post">
 
-Vitaj, Erik <a href="/user/objednavky">Vase objednavky</a><input type="submit" value="Odhlasit" name="odhlas">
+    <label>login: <input type="text" name="login"></label>
+    <label>heslo: <input type="password" name="heslo"></label>
+    <input type="submit" value="Prihlasit" name="prihlas">
+
+
 </form>
 </header>    <div id="content"><form action="/books" method="get">
   Filter: <input type="text" name="cena_od" placeholder="cena od">
@@ -27,83 +31,112 @@ Vitaj, Erik <a href="/user/objednavky">Vase objednavky</a><input type="submit" v
 <form action="/cart" method="post">
 <table class="table">
   <tr>
-    <th><a href="?sort=dole&ord=nazov">Nazov</a></th>
-    <th><a href="?sort=dole&ord=cena">Cena</a></th>
-    <th><a href="?sort=dole&ord=autor_meno">Autor</a></th>
+    <th><a href="?cena_od=&cena_do=&sort=hore&ord=nazov">Nazov</a></th>
+    <th><a href="?cena_od=&cena_do=&sort=dole&ord=cena">Cena</a></th>
+    <th><a href="?cena_od=&cena_do=&sort=dole&ord=autor_meno">Autor</a></th>
+    <th>Obrazok</th>
     <th>action</th>
   </tr>
-  <tr>
-    	<td><a href="/book/kniha-524/524">Kniha 524</a>
+  <br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
+    	<td><a href="/book/tst1/601">tst1</a>
     	</td>
-    	<td>45,00</td>
+    	<td>111,00</td>
       <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="524" /></td>
+      <td><img src="/fotky/601/ " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="601" /></td>
+    	</tr><br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
+    	<td><a href="/book/tst1/602">tst1</a>
+    	</td>
+    	<td>111,00</td>
+      <td>Hemingway</td>
+      <td><img src="/fotky/602/ " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="602" /></td>
     	</tr><tr>
-    	<td><a href="/book/kniha-361/361">Kniha 361</a>
+    	<td><a href="/book/tst1/603">tst1</a>
+    	</td>
+    	<td>111,00</td>
+      <td>Hemingway</td>
+      <td><img src="/fotky/603/48fbac651b84fa92242915afbfb02b8bbbc23c43 " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="603" /></td>
+    	</tr><br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
+    	<td><a href="/book/kniha-600/600">Kniha 600</a>
+    	</td>
+    	<td>48,00</td>
+      <td>Hemingway</td>
+      <td><img src="/fotky/600/ " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="600" /></td>
+    	</tr><br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
+    	<td><a href="/book/kniha-599/599">Kniha 599</a>
     	</td>
     	<td>27,00</td>
       <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="361" /></td>
-    	</tr><tr>
-    	<td><a href="/book/kniha-333/333">Kniha 333</a>
+      <td><img src="/fotky/599/ " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="599" /></td>
+    	</tr><br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
+    	<td><a href="/book/kniha-598/598">Kniha 598</a>
     	</td>
-    	<td>18,00</td>
+    	<td>80,00</td>
       <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="333" /></td>
-    	</tr><tr>
-    	<td><a href="/book/kniha-415/415">Kniha 415</a>
+      <td><img src="/fotky/598/ " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="598" /></td>
+    	</tr><br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
+    	<td><a href="/book/kniha-597/597">Kniha 597</a>
     	</td>
-    	<td>59,00</td>
+    	<td>25,00</td>
       <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="415" /></td>
-    	</tr><tr>
-    	<td><a href="/book/kniha-364/364">Kniha 364</a>
-    	</td>
-    	<td>45,00</td>
-      <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="364" /></td>
-    	</tr><tr>
+      <td><img src="/fotky/597/ " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="597" /></td>
+    	</tr><br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
     	<td><a href="/book/kniha-596/596">Kniha 596</a>
     	</td>
     	<td>61,00</td>
       <td>Hemingway</td>
+      <td><img src="/fotky/596/ " /></td>
     	<td><input type="checkbox" name="doKosika[]" value="596" /></td>
-    	</tr><tr>
-    	<td><a href="/book/kniha-150/150">Kniha 150</a>
+    	</tr><br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
+    	<td><a href="/book/kniha-595/595">Kniha 595</a>
     	</td>
-    	<td>100,00</td>
+    	<td>29,00</td>
       <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="150" /></td>
-    	</tr><tr>
-    	<td><a href="/book/kniha-288/288">Kniha 288</a>
+      <td><img src="/fotky/595/ " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="595" /></td>
+    	</tr><br />
+<b>Notice</b>:  Undefined offset: 0 in <b>/var/www/html/phplearn/Classes/Kniha.php</b> on line <b>31</b><br />
+<tr>
+    	<td><a href="/book/kniha-594/594">Kniha 594</a>
     	</td>
-    	<td>2,00</td>
+    	<td>65,00</td>
       <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="288" /></td>
-    	</tr><tr>
-    	<td><a href="/book/kniha-390/390">Kniha 390</a>
-    	</td>
-    	<td>36,00</td>
-      <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="390" /></td>
-    	</tr><tr>
-    	<td><a href="/book/kniha-410/410">Kniha 410</a>
-    	</td>
-    	<td>46,00</td>
-      <td>Hemingway</td>
-    	<td><input type="checkbox" name="doKosika[]" value="410" /></td>
+      <td><img src="/fotky/594/ " /></td>
+    	<td><input type="checkbox" name="doKosika[]" value="594" /></td>
     	</tr></table>
 <input type="submit" value="Vlozit do Kosika" name="vlozKnihy" />
 </form>
 
-<ul class="pagination"><li  class="active"  ><a href="/books/1?">1</a></li><li  ><a href="/books/2?">2</a></li><li  ><a href="/books/3?">3</a></li><li  ><a href="/books/4?">4</a></li><li  ><a href="/books/5?">5</a></li><li  ><a href="/books/6?">6</a></li><li  ><a href="/books/7?">7</a></li><li  ><a href="/books/8?">8</a></li><li  ><a href="/books/9?">9</a></li><li  ><a href="/books/10?">10</a></li><li  ><a href="/books/11?">11</a></li><li  ><a href="/books/12?">12</a></li><li  ><a href="/books/13?">13</a></li><li  ><a href="/books/14?">14</a></li><li  ><a href="/books/15?">15</a></li><li  ><a href="/books/16?">16</a></li><li  ><a href="/books/17?">17</a></li><li  ><a href="/books/18?">18</a></li><li  ><a href="/books/19?">19</a></li><li  ><a href="/books/20?">20</a></li><li  ><a href="/books/21?">21</a></li><li  ><a href="/books/22?">22</a></li><li  ><a href="/books/23?">23</a></li><li  ><a href="/books/24?">24</a></li><li  ><a href="/books/25?">25</a></li><li  ><a href="/books/26?">26</a></li><li  ><a href="/books/27?">27</a></li><li  ><a href="/books/28?">28</a></li><li  ><a href="/books/29?">29</a></li><li  ><a href="/books/30?">30</a></li><li  ><a href="/books/31?">31</a></li><li  ><a href="/books/32?">32</a></li><li  ><a href="/books/33?">33</a></li><li  ><a href="/books/34?">34</a></li><li  ><a href="/books/35?">35</a></li><li  ><a href="/books/36?">36</a></li><li  ><a href="/books/37?">37</a></li><li  ><a href="/books/38?">38</a></li><li  ><a href="/books/39?">39</a></li><li  ><a href="/books/40?">40</a></li><li  ><a href="/books/41?">41</a></li><li  ><a href="/books/42?">42</a></li><li  ><a href="/books/43?">43</a></li><li  ><a href="/books/44?">44</a></li><li  ><a href="/books/45?">45</a></li><li  ><a href="/books/46?">46</a></li><li  ><a href="/books/47?">47</a></li><li  ><a href="/books/48?">48</a></li><li  ><a href="/books/49?">49</a></li><li  ><a href="/books/50?">50</a></li></ul>
+<ul class="pagination"><li  class="active"  ><a href="/books/1?cena_od=&cena_do=&sort=dole&ord=nazov">1</a></li><li  ><a href="/books/2?cena_od=&cena_do=&sort=dole&ord=nazov">2</a></li><li  ><a href="/books/3?cena_od=&cena_do=&sort=dole&ord=nazov">3</a></li><li  ><a href="/books/4?cena_od=&cena_do=&sort=dole&ord=nazov">4</a></li><li  ><a href="/books/5?cena_od=&cena_do=&sort=dole&ord=nazov">5</a></li><li  ><a href="/books/6?cena_od=&cena_do=&sort=dole&ord=nazov">6</a></li><li  ><a href="/books/7?cena_od=&cena_do=&sort=dole&ord=nazov">7</a></li><li  ><a href="/books/8?cena_od=&cena_do=&sort=dole&ord=nazov">8</a></li><li  ><a href="/books/9?cena_od=&cena_do=&sort=dole&ord=nazov">9</a></li><li  ><a href="/books/10?cena_od=&cena_do=&sort=dole&ord=nazov">10</a></li><li  ><a href="/books/11?cena_od=&cena_do=&sort=dole&ord=nazov">11</a></li><li  ><a href="/books/12?cena_od=&cena_do=&sort=dole&ord=nazov">12</a></li><li  ><a href="/books/13?cena_od=&cena_do=&sort=dole&ord=nazov">13</a></li><li  ><a href="/books/14?cena_od=&cena_do=&sort=dole&ord=nazov">14</a></li><li  ><a href="/books/15?cena_od=&cena_do=&sort=dole&ord=nazov">15</a></li><li  ><a href="/books/16?cena_od=&cena_do=&sort=dole&ord=nazov">16</a></li><li  ><a href="/books/17?cena_od=&cena_do=&sort=dole&ord=nazov">17</a></li><li  ><a href="/books/18?cena_od=&cena_do=&sort=dole&ord=nazov">18</a></li><li  ><a href="/books/19?cena_od=&cena_do=&sort=dole&ord=nazov">19</a></li><li  ><a href="/books/20?cena_od=&cena_do=&sort=dole&ord=nazov">20</a></li><li  ><a href="/books/21?cena_od=&cena_do=&sort=dole&ord=nazov">21</a></li><li  ><a href="/books/22?cena_od=&cena_do=&sort=dole&ord=nazov">22</a></li><li  ><a href="/books/23?cena_od=&cena_do=&sort=dole&ord=nazov">23</a></li><li  ><a href="/books/24?cena_od=&cena_do=&sort=dole&ord=nazov">24</a></li><li  ><a href="/books/25?cena_od=&cena_do=&sort=dole&ord=nazov">25</a></li><li  ><a href="/books/26?cena_od=&cena_do=&sort=dole&ord=nazov">26</a></li><li  ><a href="/books/27?cena_od=&cena_do=&sort=dole&ord=nazov">27</a></li><li  ><a href="/books/28?cena_od=&cena_do=&sort=dole&ord=nazov">28</a></li><li  ><a href="/books/29?cena_od=&cena_do=&sort=dole&ord=nazov">29</a></li><li  ><a href="/books/30?cena_od=&cena_do=&sort=dole&ord=nazov">30</a></li><li  ><a href="/books/31?cena_od=&cena_do=&sort=dole&ord=nazov">31</a></li><li  ><a href="/books/32?cena_od=&cena_do=&sort=dole&ord=nazov">32</a></li><li  ><a href="/books/33?cena_od=&cena_do=&sort=dole&ord=nazov">33</a></li><li  ><a href="/books/34?cena_od=&cena_do=&sort=dole&ord=nazov">34</a></li><li  ><a href="/books/35?cena_od=&cena_do=&sort=dole&ord=nazov">35</a></li><li  ><a href="/books/36?cena_od=&cena_do=&sort=dole&ord=nazov">36</a></li><li  ><a href="/books/37?cena_od=&cena_do=&sort=dole&ord=nazov">37</a></li><li  ><a href="/books/38?cena_od=&cena_do=&sort=dole&ord=nazov">38</a></li><li  ><a href="/books/39?cena_od=&cena_do=&sort=dole&ord=nazov">39</a></li><li  ><a href="/books/40?cena_od=&cena_do=&sort=dole&ord=nazov">40</a></li><li  ><a href="/books/41?cena_od=&cena_do=&sort=dole&ord=nazov">41</a></li><li  ><a href="/books/42?cena_od=&cena_do=&sort=dole&ord=nazov">42</a></li><li  ><a href="/books/43?cena_od=&cena_do=&sort=dole&ord=nazov">43</a></li><li  ><a href="/books/44?cena_od=&cena_do=&sort=dole&ord=nazov">44</a></li><li  ><a href="/books/45?cena_od=&cena_do=&sort=dole&ord=nazov">45</a></li><li  ><a href="/books/46?cena_od=&cena_do=&sort=dole&ord=nazov">46</a></li><li  ><a href="/books/47?cena_od=&cena_do=&sort=dole&ord=nazov">47</a></li><li  ><a href="/books/48?cena_od=&cena_do=&sort=dole&ord=nazov">48</a></li><li  ><a href="/books/49?cena_od=&cena_do=&sort=dole&ord=nazov">49</a></li><li  ><a href="/books/50?cena_od=&cena_do=&sort=dole&ord=nazov">50</a></li><li  ><a href="/books/51?cena_od=&cena_do=&sort=dole&ord=nazov">51</a></li></ul>
 
-V nasom eshope je 500 knih</div>
+V nasom eshope je 509 knih</div>
 
     <footer>
 	toto je footer
 
-22.06.2017 17:13:31    </footer>
+27.06.2017 19:10:56    </footer>
   </body>
 </html>  </body>
 </html>
