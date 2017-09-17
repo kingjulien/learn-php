@@ -1,5 +1,16 @@
 <?php
 
+require '../vendor/autoload.php';
+
+$renderer = new \BaconQrCode\Renderer\Image\Png();
+$renderer->setHeight(256);
+$renderer->setWidth(256);
+$writer = new \BaconQrCode\Writer($renderer);
+$writer->writeFile('Hello World!', 'dist/qrcode.png');
+
+die;
+
+
 session_start();
 
 // setcookie ('meno', $meno, 1579233353, '/'); //, '', true, true);
@@ -33,6 +44,7 @@ die;
 require_once '../functions/content.php';
 require_once '../classes/Router.php';
 require_once '../functions/html.php';
+require_once '../functions/books.php';
 
 // routes
 Router::route('GET', '/', function($url){

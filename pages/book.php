@@ -1,12 +1,36 @@
 <?php
 
-$platiDo = time() + 7 * 24 * 3600;
+if (!isset($_COOKIE['pozeraneKnihy']) || !in_array($idBook, $_COOKIE['pozeraneKnihy'])) {
+	$platiDo = time() + 7 * 24 * 3600;
+	$namiVytvorenyIndex = 0;
+	if (isset($_COOKIE['pozeraneKnihy'])) {
+		$namiVytvorenyIndex = count(
+			$_COOKIE['pozeraneKnihy']
+		);
+	}
+	setcookie(
+		'pozeraneKnihy[' . $namiVytvorenyIndex . ']',
+		$idBook,
+		$platiDo, 
+		'/'
+	);
+}
 
-setcookie('pozeraneKnihy[2]', '1', $platiDo, '/');
-setcookie('pozeraneKnihy[3]', '1', $platiDo, '/');
+$tuMiVratiKnihuGetBookFunkcia = getBook($idBook);
 
+$data = [
+  'kniha' => $tuMiVratiKnihuGetBookFunkcia,
+  'id' => $idBook,
+  'cas' => time()
+];
+$content = getContent(
+	'../templates/book.php',
+	$data
+);
 
-echo $idBook;
+// html vystup - layout (view)
+include '../templates/layout.php';
+
 
 
 

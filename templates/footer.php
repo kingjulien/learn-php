@@ -2,9 +2,8 @@
 	toto je footer
 
 <?php
-     foreach($pozeraneKnihy as $idKnihy => $value)  {
-
-     	
+     foreach($pozeraneKnihy as $pozeraneKniha)  {
+       var_dump($pozeraneKniha);
      }
 
 ?>

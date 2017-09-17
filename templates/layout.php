@@ -19,6 +19,24 @@
     <div id="content"><?= $content; ?></div>
 
     <?php
+      $pozeraneKnihy = [];
+      if (isset($_COOKIE['pozeraneKnihy'])) {
+        $count = count($_COOKIE['pozeraneKnihy']);
+        for ($index = $count - 1;
+             $index >= $count - min($count, 5);
+          $index--
+        ) {
+          $idKnihy = $_COOKIE['pozeraneKnihy'][$index];
+          $pozeraneKnihy[] = getBook($idKnihy);
+        }
+
+        /*
+        foreach ($_COOKIE['pozeraneKnihy'] as $idKnihy=>$value) {
+          $pozeraneKnihy[] = getBook($idKnihy);
+        }
+        */
+      }
+
       // vypis footer
       include 'footer.php';
     ?>

@@ -1,0 +1,12 @@
+{
+	"name": "erik/minieshop",
+	"description": "mini eshop example",
+    "require": {
+        "bacon/bacon-qr-code": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Classes\\": "Classes/"
+        }
+    }
+}
