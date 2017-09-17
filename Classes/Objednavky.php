@@ -31,18 +31,18 @@ class Objednavky {
 			':adresa' => $adresa,
 			':email' => $email,
 			':telefon' => $telefon,
-			':userId' => isset($_SESSION['user']) ? $_SESSION['user']->id : NULL
+			':userId' => isset($_SESSION['user']) ? $_SESSION['user'] : NULL
 		));
 
 		return true;
 	}
 
 
-	public function getUserObjednavky() {
+	public function getByUserId($id) {
 		$sql = 'SELECT * FROM objednavky WHERE userId = :userId';
 		$query = $this->db->prepare($sql);
 		$query->execute(array(
-			':userId' => $_SESSION['user']->id,
+			':userId' => $id,
 		));
 		$objednavky = $query->fetchAll();
 		return $objednavky;

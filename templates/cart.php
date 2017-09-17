@@ -5,10 +5,10 @@ Ak chcete aby sme mali vase udaje, <a href="/registracia">registrujte sa</a>.
 
 <form action="/cart" method="post">
 
-<input type="text" name="meno" value="" placeholder="Vase meno">
-<input type="email" name="email" value="" placeholder="Vas email">
-<input type="text" name="telefon" value="" placeholder="Vas telefon">
-Vasa adresa: <textarea name="adresa"></textarea>
+<input type="text" name="meno" value="<?= $meno ?>" placeholder="Vase meno">
+<input type="email" name="email" value="<?= $email ?>" placeholder="Vas email">
+<input type="text" name="telefon" value="<?= $telefon ?>" placeholder="Vas telefon">
+Vasa adresa: <textarea name="adresa"><?= $adresa ?></textarea>
 
 <table class="table">
   <tr><th>Nazov</th><th>Cena</th><th>Mnozstvo</th><th>action</th></tr>

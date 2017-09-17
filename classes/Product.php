@@ -39,6 +39,8 @@ abstract class Product {
 
 
 		$this->title = $title;
+
+		return $this;
 	}
 
 	public function getTitle() {

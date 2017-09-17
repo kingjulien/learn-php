@@ -3,9 +3,24 @@
 use Classes\Cart;
 use Classes\Kniha;
 use Classes\Objednavky;
-
+use Classes\User;
 
 // 1.krat pride - tak bud je meno prazdne, alebo vyplnit mu ked je prihlaseny
+$meno = '';
+$adresa = '';
+$email = '';
+$telefon = '';
+
+// ked je prihlaseny....
+$user = new User;
+if ($user->isLoggedIn()) {
+  $prihlaseny = $user->getLoggedUser();
+  $meno = $prihlaseny->meno;
+  $adresa = $prihlaseny->adresa;
+  $email = $prihlaseny->email;
+  $telefon = $prihlaseny->telefon;
+}
+
 // po odoslani (POST) - to co zadal do inputu
 
 // vkladanie do kosika
@@ -43,15 +58,16 @@ if (isset($_POST['zmazat'])) {
 
 // objednava sa
 if (isset($_POST['objednat'])) {
-  // zkontrolovat (zvalidovat) odoslane udaje
+  // tu odoslal (mohol prepisat svoje udaje)
+  $meno = htmlentities($_POST['meno']);
+  $adresa = htmlentities($_POST['adresa']);
+  $email = htmlentities($_POST['email']);
+  $telefon = htmlentities($_POST['telefon']);
 
+  // zkontrolovat (zvalidovat) odoslane udaje
   $valid = true;
   if ($valid) {
-  	$kosik = Cart::getItems();
-  	$meno = $_POST['meno'];
-  	$adresa = $_POST['adresa'];
-  	$email = $_POST['email'];
-  	$telefon = $_POST['telefon'];
+  	$kosik = Cart::getItems();  	
 
     // zapise objednavku do DB
     $objednavka = new Objednavky;
@@ -72,20 +88,19 @@ if (isset($_POST['objednat'])) {
     } else {
       // nedokoncila sa objednavka z nejakeho dovodu, chyba
 
-    }
-
-    
+    } 
   }
-
-
-
 }
 
 // vytiahne z kosika a posli do template
 $data = [
   'knihyVKosiku' => Cart::getItems(),
   'suma' => Cart::getSum(),
-  'mnozstvo' => count(Cart::getItems())
+  'mnozstvo' => count(Cart::getItems()),
+  'meno' => $meno,
+  'telefon' => $telefon,
+  'email' => $email,
+  'adresa' => $adresa
 ];
 
 $content = getContent(

@@ -11,12 +11,12 @@ class User {
 
     public function login($login, $pwd) {
 
-      // select hash by login name
-      $user = $this->getUserByLogin($login);
+      // select id a password hash by login name
+      $user = $this->getUserByEmail($login);
       if (!empty($user)) {
         $hash = $user->heslo; // tu je z DB zahashovane heslo
-        if ($this->verifyPassword($pwd, $hash)) {
-          $_SESSION['user'] = $user;
+        if (password_verify($pwd, $hash)) {
+          $_SESSION['user'] = $user->id;
           return true;
         } else {
           return false;
@@ -32,12 +32,19 @@ class User {
 
     public function isLoggedIn() {
 
-      return isset($_SESSION['user']) && !empty($_SESSION['user']->id);
+      return isset($_SESSION['user']);
     }
 
     public function getLoggedUser() {
+      if (!$this->isLoggedIn()) {
+        return false;
+      }
 
-      return $_SESSION['user'];
+      $id = $_SESSION['user'];
+
+      $user = $this->getUserById($id);
+
+      return $user;
     }
 
     public function add($userInfo) {
@@ -64,7 +71,7 @@ class User {
 
     public function getUserByEmail($email) {
       global $db;
-      $sql = 'SELECT * FROM `users` WHERE `email` = :email';
+      $sql = 'SELECT `id`, `heslo` FROM `users` WHERE `email` = :email';
       $query = $db->prepare($sql);
       $query->execute(array(':email' => $email));
 

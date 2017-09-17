@@ -4,7 +4,9 @@
     "require": {
         "bacon/bacon-qr-code": "^1.0",
 		"catfan/medoo": "^1.2",
-		"mpdf/mpdf": "^6.1"
+		"mpdf/mpdf": "^6.1",
+		"swiftmailer/swiftmailer": "^6.0",
+		"tomaj/php-payments": "^1.14"
     },
     "autoload": {
         "files": [

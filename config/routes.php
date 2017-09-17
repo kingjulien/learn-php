@@ -39,6 +39,14 @@ Router::route('POST', '/registracia', function($url){
   include '../pages/registracia.php';
 });
 
+Router::route('GET', '/user/objednavky', function($url){
+  include '../pages/user/objednavky.php';
+});
+
+Router::route('GET', '/user/faktura/(\d+)', function($url, $idFaktury) {
+  include '../pages/faktura.php';
+});
+
 // default error page
 Router::route('GET', '/error', function($url){
   include '../pages/error.php';

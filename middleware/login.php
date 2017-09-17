@@ -12,11 +12,13 @@ if (isset($_POST['prihlas'])) {
 	) {
 		// prihlasenie bolo ok
 		header('Location: ' . $_SERVER['REQUEST_URI']);
-		die;
+		//die;
 	} else {
+		echo 'nepodarilo sa prihlasit';
+
 		// neuspesne prihlasenie
 		header('Location: /?loginerror=true');
-		die;
+		//die;
 	}
 
 } elseif (isset($_POST['odhlas'])) {
