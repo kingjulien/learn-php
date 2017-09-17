@@ -1,41 +1,30 @@
 <?php
 
-global $a;
-$a = 2;
+/**
+* creates valid url slug
+* @param string $title - title
+* @return string $slug - valid url slug
+*/
+function slug(string $title) {
 
+	$slug = preg_replace('/[^\w]/', '-', $title);
+    $slug = strtolower(preg_replace('/(-+)/', '-', $slug));
 
-
-
+	return $slug;
+}
 
 
 
 /**
- * vrati cislo o 2 vacsie ako parameter
- * dsalkdjaslksad
- *
- * @param int $a cislo ktore chceme zvacsit o 2
- * @param string $b cislo ktore chceme zvacsit o 2
- *
- * @return int Returns the number of elements.
- */
-function plus2( $a, $funkcia ) {
+* creates url slug
+* @param string $title - title
+* @param int $id - id of one book
+* @return string $url - url of one book
+*/
+function buildBookUrl(string $title, int $id) {
 
-	$ret = $a + 2;
+	$url = '/book/' . slug($title)
+	 . '/' . $id;
 
-	call_user_func( $funkcia,
-		'nieco', 'ine', 'dalsie'
-	);
-
-	return $ret;
+	return $url;
 }
-
-
-$vysledok = plus2($a, function ( $a, $b, $c ) {
-
-	echo 'zavolalo ma';
-	echo $c;
-
-	return;
-});
-echo $vysledok;
-
