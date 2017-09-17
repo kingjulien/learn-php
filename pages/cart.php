@@ -2,6 +2,11 @@
 
 use Classes\Cart;
 use Classes\Kniha;
+use Classes\Objednavky;
+
+
+// 1.krat pride - tak bud je meno prazdne, alebo vyplnit mu ked je prihlaseny
+// po odoslani (POST) - to co zadal do inputu
 
 // vkladanie do kosika
 if (isset($_POST['vlozKnihy'])) {
@@ -38,8 +43,41 @@ if (isset($_POST['zmazat'])) {
 
 // objednava sa
 if (isset($_POST['objednat'])) {
-  // zapise objednavku do DB
-  // mail poslat clovek cloveku
+  // zkontrolovat (zvalidovat) odoslane udaje
+
+  $valid = true;
+  if ($valid) {
+  	$kosik = Cart::getItems();
+  	$meno = $_POST['meno'];
+  	$adresa = $_POST['adresa'];
+  	$email = $_POST['email'];
+  	$telefon = $_POST['telefon'];
+
+    // zapise objednavku do DB
+    $objednavka = new Objednavky;
+
+    if (
+    	$objednavka->add(
+    		$kosik,
+    		$meno,
+    		$adresa,
+    		$email,
+    		$telefon
+  	  )
+    ) {
+      Cart::clearCart();
+      // mail poslat clovek cloveku
+      header('Location: /kupil');
+      die;
+    } else {
+      // nedokoncila sa objednavka z nejakeho dovodu, chyba
+
+    }
+
+    
+  }
+
+
 
 }
 

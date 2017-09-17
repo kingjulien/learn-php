@@ -125,61 +125,8 @@ $sth->execute();
 */
 
 
-use Classes\Router;
 use Classes\Cart;
 
 Cart::init();
 
-// routes
-Router::route('GET', '/', function($url){
-  include '../pages/homepage.php';
-});
-
-Router::route('GET', '/kontakt', function($url){
-  include '../pages/kontakt.php';
-});
-
-Router::route('GET', '/books/(\d+).*', function($url, $idPage){
-  include '../pages/books.php';
-});
-
-Router::route('GET', '/books.*', function($url){
-  include '../pages/books.php';
-});
-
-Router::route('GET', '/book/(.*)/(\d+)', function($url, $slug, $idBook){
-  include '../pages/book.php';
-});
-
-Router::route('GET', '/cart', function($url){
-  include '../pages/cart.php';
-});
-
-Router::route('POST', '/cart', function($url){
-  include '../pages/cart.php';
-});
-
-// default error page
-Router::route('GET', '/error', function($url){
-  include '../pages/error.php';
-});
-
-
-// admin pages
-Router::route('GET', '/admin/books', function($url){
-  include '../pages/admin/books.php';
-});
-
-
-// data
-Router::route('GET', '/data/books', function($url){
-  include '../pages/data/books.php';
-});
-Router::route('GET', '/data/books/(\d+)', function($url){
-  include '../pages/data/book.php';
-});
-Router::route('POST', '/data/books/(\d+)', function($url){
-  include '../pages/data/bookSave.php';
-});
-
-Router::execute();
+require '../config/routes.php';

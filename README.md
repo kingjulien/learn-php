@@ -1,22 +1,26 @@
++ sql export/import (dump)
+
 ---------------
 Tasks:
-- objednavky tabulka (user_id NULL)
-	 - foreign keys, indexes
-- ulozenie objednavky do DB
-
-- sql export/import (dump)
-
++ ulozenie objednavky do DB
+	+ objednavky tabulka (user_id NULL)
+		 + foreign keys, indexes
 
 - podstranku /registracia
-- podstranku login
-  header('Location: ' . $_SERVER['REQUEST_URI']);
 
-- podstranka /logout
-- podstranku /admin/login
+- v headeri ak je prihlaseny, tak jeho meno vypisat a logout, ak nie je, tak login form
+
+- na kosiku - formular s udajmi uzivatela - ak je prihlaseny, tak predvyplnit jeho udaje do form (zo session)
+
+
+  - header('Location: ' . $_SERVER['REQUEST_URI']);
 
 - podstranka /user/details
 - podstranka /user/objednavky
-
-- na kosiku, ci je prihlaseny, ked hej, tak predyplnit jeho udaje do form
+	- /user/objednavka - pdf (mpdf/mpdf)
 
 - kniha - autor join
+
+- /admin
+- /admin/login
+- /admin - file upload - helpers/upload.php
