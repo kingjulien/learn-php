@@ -2,16 +2,18 @@
 
 require '../vendor/autoload.php';
 
-$renderer = new \BaconQrCode\Renderer\Image\Png();
-$renderer->setHeight(256);
-$renderer->setWidth(256);
-$writer = new \BaconQrCode\Writer($renderer);
-$writer->writeFile('Hello World!', 'dist/qrcode.png');
+session_start();
+
+/*
+use Classes\Kniha;
+
+$kniha = new Kniha;
+echo $kniha->setTitle('Maly princ');
+
+echo $kniha->getTitle();
 
 die;
-
-
-session_start();
+*/
 
 // setcookie ('meno', $meno, 1579233353, '/'); //, '', true, true);
 // setcookie
@@ -40,11 +42,7 @@ var_dump($_SESSION);
 die;
 */
 
-//require '../config/db.php';
-require_once '../functions/content.php';
-require_once '../classes/Router.php';
-require_once '../functions/html.php';
-require_once '../functions/books.php';
+use Classes\Router;
 
 // routes
 Router::route('GET', '/', function($url){

@@ -1,21 +1,27 @@
 <?php
 
+use Classes\Kniha;
 
 function getAllBooks() {
 	
 	$listOfBooks = [];
 	for ($i=1; $i < 101; $i++) {
-		$listOfBooks[$i] =
-			(object) [
-				'id' => $i,
-				'title' => 'Pohyblivy sviatok',
-				'price' => rand(1, 100),
-				'url' => buildBookUrl(
-					'Pohyblivy sviatok',
-					$i
-				)
-			]
-		;
+		$knihaObject = new Kniha(
+			$i,
+			'knizka moja',
+			rand(1, 100)
+		);
+
+		//$knihaObject = new Kniha;
+		//$knihaObject->setTitle('Pohyblivy sviatok');
+		//$knihaObject->setAutor('autor');
+		print_r($knihaObject);
+		die;
+
+        $knihaObject->setId($i);
+        $knihaObject->setPrice(rand(1, 100));
+
+		$listOfBooks[$i] = $knihaObject;
 	}
 
 	return $listOfBooks;	

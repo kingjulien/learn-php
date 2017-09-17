@@ -2,9 +2,15 @@
 	"name": "erik/minieshop",
 	"description": "mini eshop example",
     "require": {
-        "bacon/bacon-qr-code": "^1.0"
+        "bacon/bacon-qr-code": "^1.0",
+		"catfan/medoo": "^1.2"
     },
     "autoload": {
+        "files": [
+            "functions/books.php",
+            "functions/html.php",
+            "functions/content.php"
+        ],
         "psr-4": {
             "Classes\\": "Classes/"
         }

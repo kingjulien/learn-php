@@ -1,10 +1,28 @@
 <?php namespace Classes;
 
-class Kniha {
+class Kniha extends Product {
 
-	public $id;
-	public $title;
-	public $price;
-    public $priceInDolars;
-	public $description;
+	protected $pocetStran;
+
+	public function __construct(
+		$id = 0, $title = '', $price = 0
+	) {
+	  
+		$title = 'Kniha ' . $title;
+
+	  parent::__construct($id, $title, $price);
+
+
+	}
+
+	public function setPocetStran($pocetStran) {
+		$this->pocetStran = $pocetStran;
+	}
+
+	public function getFirstWordOfTitle() {
+		
+		$firstWord = explode(' ', $this->title)[0];
+
+		return $firstWord;
+	}	
 }
