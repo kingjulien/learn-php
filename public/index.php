@@ -1,5 +1,7 @@
 <?php
 
+// header('Content-Type: text/json');
+
 //require '../config/db.php';
 require_once '../functions/content.php';
 require_once '../classes/Router.php';
@@ -25,6 +27,18 @@ Router::route('GET', '/book/(.*)/(\d+)', function($url, $slug, $idBook){
 // default error page
 Router::route('GET', '/error', function($url){
   include '../pages/error.php';
+});
+
+
+// admin pages
+Router::route('GET', '/admin/books', function($url){
+  include '../pages/admin/books.php';
+});
+
+
+// data
+Router::route('GET', '/data/books', function($url){
+  include '../pages/data/books.php';
 });
 
 Router::execute();

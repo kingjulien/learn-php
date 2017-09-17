@@ -6,11 +6,15 @@
 - podstranku /product - podla id produktu, na ktoru sa bude odkazovat zo zoznamu produktov cez href a slug fnc
 
 - json
-	- plugin do chrome / ff na view
+	- plugin do chrome - view
+	- SPA using fetch to json (admin)
 
 - headers
 	- request / response (co je CORS)
 	
+
+
+- sessions / cookies
 
 
 Tasks:
